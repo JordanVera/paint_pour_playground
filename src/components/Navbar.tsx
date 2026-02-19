@@ -134,12 +134,14 @@ export function Navbar() {
           }}
           initial={false}
           animate={{
-            backgroundColor: isScrolled ? scrolledBg : 'transparent',
+            backgroundColor: isScrolled
+              ? scrolledBg
+              : 'bg-white/50 dark:bg-black/50',
             boxShadow: isScrolled
               ? resolvedTheme === 'dark'
                 ? '0 1px 3px rgba(0,0,0,0.4)'
                 : '0 1px 3px rgba(0,0,0,0.1)'
-              : 'none',
+              : 'bg-white/50 dark:bg-black/50',
             borderRadius: isScrolled ? 9999 : 0,
             borderTopWidth: isScrolled ? 1 : 0,
             borderLeftWidth: isScrolled ? 1 : 0,
