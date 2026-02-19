@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { TechniqueCard } from "@/components/TechniqueCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useBookingModal } from "@/components/BookingModalContext";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -53,6 +54,7 @@ const techniques = [
 ];
 
 export default function TechniquesPage() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       <Hero
@@ -92,11 +94,13 @@ export default function TechniquesPage() {
               Book a session and we&apos;ll help you pick the perfect technique for
               your skill level and style.
             </p>
-            <Link href="/book">
-              <Button size="lg" className="text-lg px-10 py-6">
-                Book Now
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="text-lg px-10 py-6"
+              onClick={openBookingModal}
+            >
+              Book Now
+            </Button>
           </AnimatedSection>
         </div>
       </section>

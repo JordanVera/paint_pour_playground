@@ -8,8 +8,10 @@ import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react';
+import { useBookingModal } from '@/components/BookingModalContext';
 
 export default function AboutPage() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       <Hero
@@ -128,15 +130,14 @@ export default function AboutPage() {
                     corporate event — we&apos;d love to bring the paint-pour
                     experience to you.
                   </p>
-                  <Link href="/book">
-                    <Button
-                      size="lg"
-                      variant="accent"
-                      className="text-lg px-8 py-6"
-                    >
-                      Book Now
-                    </Button>
-                  </Link>
+                  <Button
+                    size="lg"
+                    variant="accent"
+                    className="text-lg px-8 py-6"
+                    onClick={openBookingModal}
+                  >
+                    Book Now
+                  </Button>
                 </CardContent>
               </Card>
             </AnimatedSection>

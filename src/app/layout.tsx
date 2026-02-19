@@ -3,6 +3,8 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { BookingModalProvider } from "@/components/BookingModalContext";
+import { BookingModal } from "@/components/BookingModal";
 import "./globals.css";
 
 const inter = Inter({
@@ -47,9 +49,12 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col antialiased bg-background text-foreground">
         <ThemeProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <BookingModalProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <BookingModal />
+          </BookingModalProvider>
         </ThemeProvider>
       </body>
     </html>

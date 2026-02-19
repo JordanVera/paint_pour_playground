@@ -1,16 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { useBookingModal } from "@/components/BookingModalContext";
 import { Separator } from "@/components/ui/separator";
 
 const footerLinks = [
   { href: "/how-it-works", label: "How It Works" },
   { href: "/techniques", label: "Techniques" },
   { href: "/events", label: "Events" },
-  { href: "/book", label: "Book Us" },
   { href: "/safety", label: "Safety" },
   { href: "/about", label: "About" },
 ];
 
 export function Footer() {
+  const { openBookingModal } = useBookingModal();
   return (
     <footer className="bg-stone-900 dark:bg-stone-950 text-stone-300">
       <div className="container mx-auto px-4 py-12">
@@ -54,12 +57,12 @@ export function Footer() {
             <p className="text-sm text-stone-400 mb-4">
               Ready to bring the paint-pour experience to your event?
             </p>
-            <Link
-              href="/book"
-              className="inline-block text-sm font-semibold text-fuchsia-400 hover:text-fuchsia-300 transition-colors"
+            <button
+              onClick={openBookingModal}
+              className="inline-block text-sm font-semibold text-fuchsia-400 hover:text-fuchsia-300 transition-colors cursor-pointer"
             >
               Book Us →
-            </Link>
+            </button>
           </div>
         </div>
 

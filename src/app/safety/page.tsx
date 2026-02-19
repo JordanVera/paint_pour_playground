@@ -3,6 +3,7 @@
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useBookingModal } from "@/components/BookingModalContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -111,6 +112,7 @@ function FeatureCard({
 }
 
 export default function SafetyPage() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       <Hero
@@ -174,11 +176,13 @@ export default function SafetyPage() {
               documentation, safety protocols, and zero-waste teardown — we come
               prepared.
             </p>
-            <Link href="/book">
-              <Button size="lg" className="text-lg px-10 py-6">
-                Book Us for Your Event
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="text-lg px-10 py-6"
+              onClick={openBookingModal}
+            >
+              Book Us for Your Event
+            </Button>
           </AnimatedSection>
         </div>
       </section>

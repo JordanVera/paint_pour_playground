@@ -10,7 +10,7 @@ interface SheetContextValue {
   setOpen: (open: boolean) => void;
 }
 
-const SheetContext = React.createContext<SheetContextValue>({
+export const SheetContext = React.createContext<SheetContextValue>({
   open: false,
   setOpen: () => {},
 });

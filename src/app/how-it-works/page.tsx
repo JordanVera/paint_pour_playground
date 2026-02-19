@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { StepCard } from "@/components/StepCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useBookingModal } from "@/components/BookingModalContext";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -53,6 +54,7 @@ const steps = [
 ];
 
 export default function HowItWorksPage() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       <Hero
@@ -92,11 +94,13 @@ export default function HowItWorksPage() {
               Book a session for yourself, a group, or an entire event. We bring
               everything — you bring the creativity.
             </p>
-            <Link href="/book">
-              <Button size="lg" className="text-lg px-10 py-6">
-                Book Your Session
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="text-lg px-10 py-6"
+              onClick={openBookingModal}
+            >
+              Book Your Session
+            </Button>
           </AnimatedSection>
         </div>
       </section>

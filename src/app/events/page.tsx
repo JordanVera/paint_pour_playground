@@ -3,6 +3,7 @@
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useBookingModal } from "@/components/BookingModalContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,7 @@ const upcomingEvents = [
 ];
 
 export default function EventsPage() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       <Hero
@@ -114,15 +116,14 @@ export default function EventsPage() {
                 safety mats, guided instruction, cleanup, and a zero-waste
                 approach. You get a turnkey creative experience.
               </p>
-              <Link href="/book">
-                <Button
-                  size="lg"
-                  variant="accent"
-                  className="text-lg px-10 py-6"
-                >
-                  Request a Booking
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                variant="accent"
+                className="text-lg px-10 py-6"
+                onClick={openBookingModal}
+              >
+                Request a Booking
+              </Button>
             </AnimatedSection>
           </div>
         </div>

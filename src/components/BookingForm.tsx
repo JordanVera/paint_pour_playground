@@ -23,7 +23,11 @@ interface FormErrors {
   [key: string]: string;
 }
 
-export function BookingForm() {
+interface BookingFormProps {
+  onClose?: () => void;
+}
+
+export function BookingForm({ onClose }: BookingFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -76,7 +80,7 @@ export function BookingForm() {
   }
 
   return (
-    <Card className="border-0 shadow-xl max-w-2xl mx-auto">
+    <Card className="border-0 shadow-none max-w-2xl mx-auto">
       <CardContent className="p-6 md:p-10">
         <AnimatePresence mode="wait">
           {submitted ? (
@@ -91,9 +95,16 @@ export function BookingForm() {
               <p className="text-muted-foreground mb-6">
                 Thanks, {formData.name}! We&apos;ll get back to you within 24 hours.
               </p>
-              <Button variant="outline" onClick={() => setSubmitted(false)}>
-                Submit Another Request
-              </Button>
+              <div className="flex gap-3 justify-center flex-wrap">
+                <Button variant="outline" onClick={() => setSubmitted(false)}>
+                  Submit Another Request
+                </Button>
+                {onClose && (
+                  <Button variant="secondary" onClick={onClose}>
+                    Close
+                  </Button>
+                )}
+              </div>
             </motion.div>
           ) : (
             <motion.form

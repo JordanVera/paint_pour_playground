@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useBookingModal } from "@/components/BookingModalContext";
 import { Palette, Droplets, Truck } from "lucide-react";
 
 const valueProps = [
@@ -29,6 +30,7 @@ const valueProps = [
 ];
 
 export default function HomePage() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       {/* Hero */}
@@ -81,11 +83,14 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link href="/book">
-              <Button size="lg" variant="accent" className="text-lg px-10 py-6">
-                Book Now
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              variant="accent"
+              className="text-lg px-10 py-6"
+              onClick={openBookingModal}
+            >
+              Book Now
+            </Button>
             <Link href="/how-it-works">
               <Button
                 size="lg"
@@ -166,11 +171,13 @@ export default function HomePage() {
               Book a session for yourself, your group, or your next event.
               No experience needed — just show up and pour.
             </p>
-            <Link href="/book">
-              <Button size="lg" className="text-lg px-10 py-6">
-                Book Your Session
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="text-lg px-10 py-6"
+              onClick={openBookingModal}
+            >
+              Book Your Session
+            </Button>
           </AnimatedSection>
         </div>
       </section>
