@@ -6,7 +6,18 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { useBookingModal } from '@/components/BookingModalContext';
-import { Palette, Droplets, Truck } from 'lucide-react';
+import {
+  Palette,
+  Droplets,
+  Truck,
+  PartyPopper,
+  Music2,
+  Users2,
+  Briefcase,
+  Sparkles,
+  CalendarDays,
+  MapPin,
+} from 'lucide-react';
 
 const valueProps = [
   {
@@ -26,6 +37,51 @@ const valueProps = [
     title: 'We Handle the Rest',
     description:
       'We set up, guide, clean up, dry your artwork, and arrange pickup or shipping. You just have fun.',
+  },
+];
+
+const eventTypes = [
+  {
+    icon: Music2,
+    title: 'Festivals & Markets',
+    description:
+      'We pop up at outdoor festivals, street fairs, and artisan markets. Walk-ups welcome — no reservation needed.',
+  },
+  {
+    icon: PartyPopper,
+    title: 'Parties & Celebrations',
+    description:
+      'Birthday parties, bridal showers, bachelorette parties, and milestone celebrations. We bring the creative fun to you.',
+  },
+  {
+    icon: Briefcase,
+    title: 'Corporate & Conferences',
+    description:
+      'Team-building, corporate retreats, trade shows, and conference activations. A memorable icebreaker that everyone enjoys.',
+  },
+  {
+    icon: Users2,
+    title: 'Private Events',
+    description:
+      'Fundraisers, community gatherings, school events, and private venues. Custom setups for groups of any size.',
+  },
+];
+
+const upcomingEventsPreview = [
+  {
+    name: 'Cattle Country Festival',
+    date: 'Coming Soon',
+    location: 'TBA',
+  },
+  {
+    name: 'Weekend Pop-Up',
+    date: 'Dates TBA',
+    location: 'TBA',
+  },
+  {
+    name: 'Private Bookings',
+    date: 'By Request',
+    location: 'Your Venue',
   },
 ];
 
@@ -76,10 +132,10 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.45 }}
             className="text-base md:text-lg text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            We are an interactive paint-pour pop-up. Customers purchase the
-            canvas, paint, and tools — then create their masterpiece on-site. We
-            set up the stations, guide the process, handle cleanup, drying, and
-            pickup or shipping.
+            We&apos;re a paint-pour pop-up for events, festivals, parties,
+            conferences, and celebrations. Find us at your favorite festival, or
+            book us for your venue. We bring the stations, supplies, and
+            guidance — you create the art.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -146,6 +202,78 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Event Types */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Pop-Up for Every Occasion
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              From festivals and conferences to birthday parties and corporate
+              retreats — we bring the paint-pour experience wherever the action
+              is.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {eventTypes.map((event, i) => (
+              <AnimatedSection key={event.title} delay={i * 0.1}>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <Card className="h-full border-0 shadow-md hover:shadow-lg transition-shadow bg-card">
+                    <CardContent className="pt-6 pb-6">
+                      <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-fuchsia-500 to-cyan-500 flex items-center justify-center">
+                        <event.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-lg font-bold mb-2">{event.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {event.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Book Us for Your Event */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-fuchsia-500 via-purple-500 to-cyan-500 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <AnimatedSection>
+              <Users2 className="w-14 h-14 mx-auto mb-6 opacity-90" />
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Book Us for Your Event
+              </h2>
+              <p className="text-lg text-white/90 mb-4 leading-relaxed">
+                Planning a festival, party, conference, or corporate gathering?
+                We bring the full paint-pour experience to your venue — setup,
+                supplies, guided instruction, cleanup, and drying. Turnkey
+                creative activation for any occasion.
+              </p>
+              <p className="text-base text-white/80 mb-8 leading-relaxed">
+                Perfect for team-building, trade show activations, birthday
+                parties, bridal showers, fundraisers, and more. Zero hassle —
+                you host, we create the experience.
+              </p>
+              <Button
+                size="lg"
+                variant="accent"
+                className="text-lg px-10 py-6"
+                onClick={openBookingModal}
+              >
+                Request a Booking
+              </Button>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* ASN Reseller Statement */}
       <section className="py-16 bg-surface">
         <div className="container mx-auto px-4">
@@ -163,28 +291,6 @@ export default function HomePage() {
                 Paint Pour Playground by Boho Beat Brands, LLC
               </p>
             </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 md:py-28">
-        <div className="container mx-auto px-4 text-center">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Create?
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8">
-              Book a session for yourself, your group, or your next event. No
-              experience needed — just show up and pour.
-            </p>
-            <Button
-              size="lg"
-              className="text-lg px-10 py-6"
-              onClick={openBookingModal}
-            >
-              Book Your Session
-            </Button>
           </AnimatedSection>
         </div>
       </section>
