@@ -165,7 +165,7 @@ export default function HomePage() {
       </section>
 
       {/* Value Props */}
-      <section className="py-20 md:py-28">
+      <section className="py-12">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -203,7 +203,7 @@ export default function HomePage() {
       </section>
 
       {/* Event Types */}
-      <section className="py-20 md:py-28">
+      <section className="py-12">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -242,7 +242,7 @@ export default function HomePage() {
       </section>
 
       {/* Book Us for Your Event */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-fuchsia-500 via-purple-500 to-cyan-500 text-white">
+      <section className="py-12 bg-gradient-to-br from-fuchsia-500 via-purple-500 to-cyan-500 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <AnimatedSection>
