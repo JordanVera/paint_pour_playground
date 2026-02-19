@@ -1,40 +1,40 @@
-"use client";
+'use client';
 
-import { Hero } from "@/components/Hero";
-import { SectionHeading } from "@/components/SectionHeading";
-import { AnimatedSection } from "@/components/AnimatedSection";
-import { useBookingModal } from "@/components/BookingModalContext";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { CalendarDays, MapPin, Users } from "lucide-react";
+import { Hero } from '@/components/Hero';
+import { SectionHeading } from '@/components/SectionHeading';
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { useBookingModal } from '@/components/BookingModalContext';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { CalendarDays, MapPin, Users } from 'lucide-react';
 
 const upcomingEvents = [
   {
-    name: "Cattle Country Festival",
-    date: "Coming Soon",
-    location: "TBA",
+    name: 'Cattle Country Festival',
+    date: 'Coming Soon',
+    location: 'TBA',
     description:
-      "Join us at the festival for a full paint-pour experience. Walk-ups welcome!",
-    status: "upcoming" as const,
+      'Join us at the festival for a full paint-pour experience. Walk-ups welcome!',
+    status: 'upcoming' as const,
   },
   {
-    name: "Weekend Pop-Up",
-    date: "Dates TBA",
-    location: "TBA",
+    name: 'Weekend Pop-Up',
+    date: 'Dates TBA',
+    location: 'TBA',
     description:
-      "Our regular weekend pop-up sessions. Follow us on social media for announcements.",
-    status: "upcoming" as const,
+      'Our regular weekend pop-up sessions. Follow us on social media for announcements.',
+    status: 'upcoming' as const,
   },
   {
-    name: "Private Events",
-    date: "By Request",
-    location: "Your Venue",
+    name: 'Private Events',
+    date: 'By Request',
+    location: 'Your Venue',
     description:
-      "Birthday parties, team-building, bridal showers — we come to you with the full setup.",
-    status: "booking" as const,
+      'Birthday parties, team-building, bridal showers — we come to you with the full setup.',
+    status: 'booking' as const,
   },
 ];
 
@@ -45,6 +45,7 @@ export default function EventsPage() {
       <Hero
         title="Events"
         subtitle="Catch us at festivals and pop-ups, or book us for your private event."
+        imageUrl="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-20 md:py-28">
@@ -59,7 +60,7 @@ export default function EventsPage() {
               <AnimatedSection key={event.name} delay={i * 0.12}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
                 >
                   <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow">
                     <CardHeader>
@@ -67,10 +68,10 @@ export default function EventsPage() {
                         <CardTitle className="text-xl">{event.name}</CardTitle>
                         <Badge
                           variant={
-                            event.status === "booking" ? "default" : "secondary"
+                            event.status === 'booking' ? 'default' : 'secondary'
                           }
                         >
-                          {event.status === "booking" ? "Book Now" : "Upcoming"}
+                          {event.status === 'booking' ? 'Book Now' : 'Upcoming'}
                         </Badge>
                       </div>
                     </CardHeader>

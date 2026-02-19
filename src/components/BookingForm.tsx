@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent } from '@/components/ui/card';
+import { CheckCircle } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -29,28 +29,28 @@ interface BookingFormProps {
 
 export function BookingForm({ onClose }: BookingFormProps) {
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    date: "",
-    location: "",
-    guestCount: "",
-    notes: "",
+    name: '',
+    email: '',
+    phone: '',
+    date: '',
+    location: '',
+    guestCount: '',
+    notes: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
 
   function validate(): FormErrors {
     const errs: FormErrors = {};
-    if (!formData.name.trim()) errs.name = "Name is required";
+    if (!formData.name.trim()) errs.name = 'Name is required';
     if (!formData.email.trim()) {
-      errs.email = "Email is required";
+      errs.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errs.email = "Please enter a valid email";
+      errs.email = 'Please enter a valid email';
     }
-    if (!formData.phone.trim()) errs.phone = "Phone is required";
-    if (!formData.date.trim()) errs.date = "Preferred date is required";
-    if (!formData.location.trim()) errs.location = "Location is required";
+    if (!formData.phone.trim()) errs.phone = 'Phone is required';
+    if (!formData.date.trim()) errs.date = 'Preferred date is required';
+    if (!formData.location.trim()) errs.location = 'Location is required';
     return errs;
   }
 
@@ -66,7 +66,7 @@ export function BookingForm({ onClose }: BookingFormProps) {
   }
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -93,7 +93,8 @@ export function BookingForm({ onClose }: BookingFormProps) {
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-2">Request Received!</h3>
               <p className="text-muted-foreground mb-6">
-                Thanks, {formData.name}! We&apos;ll get back to you within 24 hours.
+                Thanks, {formData.name}! We&apos;ll get back to you within 24
+                hours.
               </p>
               <div className="flex gap-3 justify-center flex-wrap">
                 <Button variant="outline" onClick={() => setSubmitted(false)}>
@@ -228,8 +229,8 @@ export function BookingForm({ onClose }: BookingFormProps) {
                 Submit Booking Request
               </Button>
 
-              <p className="text-xs text-center text-muted-foreground">
-                We&apos;ll respond within 24 hours. No payment required at this stage.
+              <p className="text-xs text-center text-muted-foreground dark:text-yellow-300">
+                We&apos;ll respond within 24 hours.
               </p>
             </motion.form>
           )}

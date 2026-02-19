@@ -17,6 +17,7 @@ export default function AboutPage() {
       <Hero
         title="About Us"
         subtitle="Meet the team behind the pour. We're here to bring creativity, color, and community to every event."
+        imageUrl="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1920&q=80"
       />
 
       {/* Brand Story */}

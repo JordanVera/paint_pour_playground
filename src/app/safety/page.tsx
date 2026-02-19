@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { Hero } from "@/components/Hero";
-import { SectionHeading } from "@/components/SectionHeading";
-import { AnimatedSection } from "@/components/AnimatedSection";
-import { useBookingModal } from "@/components/BookingModalContext";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { Hero } from '@/components/Hero';
+import { SectionHeading } from '@/components/SectionHeading';
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { useBookingModal } from '@/components/BookingModalContext';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 import {
   ShieldCheck,
   Footprints,
@@ -18,59 +18,59 @@ import {
   Droplets,
   PackageCheck,
   Leaf,
-} from "lucide-react";
+} from 'lucide-react';
 
 const safetyItems = [
   {
     icon: Footprints,
-    title: "Non-Slip Mats",
+    title: 'Non-Slip Mats',
     description:
-      "Heavy-duty, non-slip mats under every station to prevent slipping on paint or water.",
+      'Heavy-duty, non-slip mats under every station to prevent slipping on paint or water.',
   },
   {
     icon: TableProperties,
-    title: "Full Table Protection",
+    title: 'Full Table Protection',
     description:
-      "Tables and surrounding areas are fully covered with plastic sheeting and drop cloths.",
+      'Tables and surrounding areas are fully covered with plastic sheeting and drop cloths.',
   },
   {
     icon: Eye,
-    title: "Supervised Stations",
+    title: 'Supervised Stations',
     description:
-      "Every station is guided by a team member to assist with technique and ensure safe handling.",
+      'Every station is guided by a team member to assist with technique and ensure safe handling.',
   },
   {
     icon: Baby,
-    title: "Child-Friendly Options",
+    title: 'Child-Friendly Options',
     description:
-      "Kid-sized stations, non-toxic paints, aprons, and age-appropriate guidance for young artists.",
+      'Kid-sized stations, non-toxic paints, aprons, and age-appropriate guidance for young artists.',
   },
 ];
 
 const zeroWasteItems = [
   {
     icon: Recycle,
-    title: "Paint Recycling",
+    title: 'Paint Recycling',
     description:
-      "Leftover acrylic paint is collected, mixed for reuse, or responsibly disposed of — never poured down drains.",
+      'Leftover acrylic paint is collected, mixed for reuse, or responsibly disposed of — never poured down drains.',
   },
   {
     icon: Droplets,
-    title: "Drainage Setup",
+    title: 'Drainage Setup',
     description:
-      "Our self-contained drainage system captures all runoff. No paint enters the ground or water supply.",
+      'Our self-contained drainage system captures all runoff. No paint enters the ground or water supply.',
   },
   {
     icon: PackageCheck,
-    title: "Reusable Materials",
+    title: 'Reusable Materials',
     description:
-      "We use reusable mixing cups, stir sticks, and station covers to minimize single-use waste.",
+      'We use reusable mixing cups, stir sticks, and station covers to minimize single-use waste.',
   },
   {
     icon: Leaf,
-    title: "Minimal Footprint",
+    title: 'Minimal Footprint',
     description:
-      "Every part of our setup and teardown is designed to leave zero trace at your venue.",
+      'Every part of our setup and teardown is designed to leave zero trace at your venue.',
   },
 ];
 
@@ -89,7 +89,7 @@ function FeatureCard({
     <AnimatedSection delay={delay}>
       <motion.div
         whileHover={{ y: -4 }}
-        transition={{ type: "spring", stiffness: 300 }}
+        transition={{ type: 'spring', stiffness: 300 }}
       >
         <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow">
           <CardContent className="pt-6 pb-6">
@@ -118,6 +118,7 @@ export default function SafetyPage() {
       <Hero
         title="Safety & Zero-Waste"
         subtitle="We take safety seriously and leave every venue cleaner than we found it."
+        imageUrl="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1920&q=80"
       />
 
       {/* Safety Section */}

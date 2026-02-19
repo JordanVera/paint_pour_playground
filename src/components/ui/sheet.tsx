@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -63,7 +64,7 @@ function SheetContent({
     };
   }, [open]);
 
-  return (
+  const sheetContent = (
     <AnimatePresence>
       {open && (
         <>
@@ -99,6 +100,11 @@ function SheetContent({
       )}
     </AnimatePresence>
   );
+
+  if (typeof document !== "undefined") {
+    return createPortal(sheetContent, document.body);
+  }
+  return sheetContent;
 }
 
 function SheetClose({

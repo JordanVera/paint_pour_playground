@@ -60,6 +60,7 @@ export default function HowItWorksPage() {
       <Hero
         title="How It Works"
         subtitle="From blank canvas to finished masterpiece — here's your journey in six simple steps."
+        imageUrl="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-20 md:py-28">

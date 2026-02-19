@@ -1,31 +1,31 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AnimatedSection } from "@/components/AnimatedSection";
-import { useBookingModal } from "@/components/BookingModalContext";
-import { Palette, Droplets, Truck } from "lucide-react";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { useBookingModal } from '@/components/BookingModalContext';
+import { Palette, Droplets, Truck } from 'lucide-react';
 
 const valueProps = [
   {
     icon: Palette,
-    title: "Pick Your Canvas",
+    title: 'Pick Your Canvas',
     description:
-      "Choose your canvas size, select your colors, and pick a technique. Your art, your choices.",
+      'Choose your canvas size, select your colors, and pick a technique. Your art, your choices.',
   },
   {
     icon: Droplets,
-    title: "Pour Your Art",
+    title: 'Pour Your Art',
     description:
-      "With hands-on guidance, pour, swirl, and create a one-of-a-kind masterpiece right at your station.",
+      'With hands-on guidance, pour, swirl, and create a one-of-a-kind masterpiece right at your station.',
   },
   {
     icon: Truck,
-    title: "We Handle the Rest",
+    title: 'We Handle the Rest',
     description:
-      "We set up, guide, clean up, dry your artwork, and arrange pickup or shipping. You just have fun.",
+      'We set up, guide, clean up, dry your artwork, and arrange pickup or shipping. You just have fun.',
   },
 ];
 
@@ -34,12 +34,17 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden py-28 md:py-40 bg-gradient-to-br from-fuchsia-500 via-purple-500 to-cyan-500 text-white">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-1/4 w-72 h-72 bg-amber-400 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-fuchsia-300 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-300 rounded-full blur-3xl" />
-        </div>
+      <section className="relative overflow-hidden py-28 md:py-40 text-white">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/40" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -55,8 +60,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
           >
-            Paint Pour{" "}
-            <span className="text-amber-300">Playground</span>
+            Paint Pour <span className="text-amber-300">Playground</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -120,7 +124,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {valueProps.map((prop, i) => (
               <AnimatedSection key={prop.title} delay={i * 0.15}>
-                <motion.div whileHover={{ y: -6 }} transition={{ type: "spring", stiffness: 300 }}>
+                <motion.div
+                  whileHover={{ y: -6 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
                   <Card className="text-center h-full border-0 shadow-lg hover:shadow-xl transition-shadow">
                     <CardContent className="pt-8 pb-8">
                       <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-cyan-500 flex items-center justify-center">
@@ -168,8 +175,8 @@ export default function HomePage() {
               Ready to Create?
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8">
-              Book a session for yourself, your group, or your next event.
-              No experience needed — just show up and pour.
+              Book a session for yourself, your group, or your next event. No
+              experience needed — just show up and pour.
             </p>
             <Button
               size="lg"

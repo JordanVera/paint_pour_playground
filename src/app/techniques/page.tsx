@@ -60,6 +60,7 @@ export default function TechniquesPage() {
       <Hero
         title="Techniques"
         subtitle="Discover the different pour methods you can try. Each one creates a unique, one-of-a-kind result."
+        imageUrl="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-20 md:py-28">

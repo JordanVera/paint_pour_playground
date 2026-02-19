@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
@@ -9,7 +10,6 @@ import {
   Sheet,
   SheetTrigger,
   SheetContent,
-  SheetClose,
   SheetContext,
 } from '@/components/ui/sheet';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -33,6 +33,45 @@ function MobileBookNowButton() {
   );
 }
 
+function MobileNavMenu({ pathname }: { pathname: string }) {
+  const { setOpen } = useContext(SheetContext);
+  return (
+    <div className="flex flex-col gap-2">
+      {navLinks.map((link, i) => {
+        const isActive =
+          link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+        return (
+          <motion.div
+            key={link.href}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: i * 0.05 }}
+          >
+            <Link
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className={`block w-full text-left text-lg font-medium px-4 py-3 rounded-lg transition-colors ${
+                isActive
+                  ? 'bg-primary/50 text-white'
+                  : 'text-foreground hover:text-primary hover:bg-primary/10'
+              }`}
+            >
+              {link.label}
+            </Link>
+          </motion.div>
+        );
+      })}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: navLinks.length * 0.05 }}
+      >
+        <MobileBookNowButton />
+      </motion.div>
+    </div>
+  );
+}
+
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/how-it-works', label: 'How It Works' },
@@ -52,6 +91,7 @@ const navTransition = {
 };
 
 export function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const { resolvedTheme } = useTheme();
   const { openBookingModal } = useBookingModal();
@@ -119,16 +159,26 @@ export function Navbar() {
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+            <div className="hidden md:flex items-center gap-2">
+              {navLinks.map((link) => {
+                const isActive =
+                  link.href === '/'
+                    ? pathname === '/'
+                    : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`text-sm font-medium px-4 py-2.5 rounded-lg transition-colors ${
+                      isActive
+                        ? 'bg-primary/50 text-white'
+                        : 'text-foreground/70 hover:text-primary hover:bg-primary/10'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <ThemeToggle />
               <Button size="sm" onClick={openBookingModal}>
                 Book Now
@@ -143,27 +193,7 @@ export function Navbar() {
                   <Menu className="h-6 w-6 text-foreground" />
                 </SheetTrigger>
                 <SheetContent side="right" className="pt-12">
-                  <div className="flex flex-col gap-4">
-                    {navLinks.map((link, i) => (
-                      <motion.div
-                        key={link.href}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.05 }}
-                      >
-                        <SheetClose className="block w-full text-left text-lg font-medium py-2 text-foreground hover:text-primary transition-colors">
-                          <Link href={link.href}>{link.label}</Link>
-                        </SheetClose>
-                      </motion.div>
-                    ))}
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: navLinks.length * 0.05 }}
-                    >
-                      <MobileBookNowButton />
-                    </motion.div>
-                  </div>
+                  <MobileNavMenu pathname={pathname} />
                 </SheetContent>
               </Sheet>
             </div>
