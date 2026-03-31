@@ -158,7 +158,7 @@ export function BookingForm({ onClose }: BookingFormProps) {
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="(555) 123-4567"
+                    placeholder="703-638-5076"
                     value={formData.phone}
                     onChange={handleChange}
                   />

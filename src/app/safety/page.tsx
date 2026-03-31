@@ -7,41 +7,39 @@ import { useBookingModal } from '@/components/BookingModalContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import {
   ShieldCheck,
   Footprints,
-  TableProperties,
-  Eye,
-  Baby,
+  Shield,
+  Monitor,
+  Accessibility,
   Recycle,
   Droplets,
-  PackageCheck,
   Leaf,
 } from 'lucide-react';
 
 const safetyItems = [
   {
+    icon: Shield,
+    title: 'PPE',
+    description:
+      'Although our paint is non-toxic, we provide each customer with gloves and an apron so they leave as clean as they came in, eliminating paint stains. In the rare event of an off-table spill, we have a clean-up station on-site.',
+  },
+  {
     icon: Footprints,
-    title: 'Non-Slip Mats',
+    title: 'Non-Slip Flooring/Mats',
     description:
       'Heavy-duty, non-slip mats under every station to prevent slipping on paint or water.',
   },
   {
-    icon: TableProperties,
-    title: 'Full Table Protection',
-    description:
-      'Tables and surrounding areas are fully covered with plastic sheeting and drop cloths.',
-  },
-  {
-    icon: Eye,
+    icon: Monitor,
     title: 'Supervised Stations',
     description:
-      'Every station is guided by a team member to assist with technique and ensure safe handling.',
+      'Our trained staff and instructional screens guide customers every step of the way to ensure safe handling.',
   },
   {
-    icon: Baby,
-    title: 'Child-Friendly Options',
+    icon: Accessibility,
+    title: 'ADA & Child-Friendly Options',
     description:
       'Kid-sized stations, non-toxic paints, aprons, and age-appropriate guidance for young artists.',
   },
@@ -52,7 +50,7 @@ const zeroWasteItems = [
     icon: Recycle,
     title: 'Paint Recycling',
     description:
-      'Leftover acrylic paint is collected, mixed for reuse, or responsibly disposed of — never poured down drains.',
+      'Spillover acrylic paint flows through a built-in drainage system into a container to be recycled later — no need for disposal and no mess.',
   },
   {
     icon: Droplets,
@@ -61,16 +59,10 @@ const zeroWasteItems = [
       'Our self-contained drainage system captures all runoff. No paint enters the ground or water supply.',
   },
   {
-    icon: PackageCheck,
-    title: 'Reusable Materials',
-    description:
-      'We use reusable mixing cups, stir sticks, and station covers to minimize single-use waste.',
-  },
-  {
     icon: Leaf,
     title: 'Minimal Footprint',
     description:
-      'Every part of our setup and teardown is designed to leave zero trace at your venue.',
+      'Every part of our setup and teardown is designed to leave ZERO trace at your venue.',
   },
 ];
 

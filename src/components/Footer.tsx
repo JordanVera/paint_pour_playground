@@ -23,14 +23,24 @@ export function Footer() {
               <span className="text-fuchsia-400">Paint Pour</span>{" "}
               <span className="text-cyan-400">Playground</span>
             </h3>
-            <p className="text-sm text-stone-400 mb-3">
-              Boho Beat Brands, LLC presents Paint Pour Playground
-            </p>
-            <p className="text-xs text-stone-500 leading-relaxed">
-              We resell art supplies and kits used in our experiences. Customers
-              create their own art — we facilitate setup, guidance, and
-              drying/delivery.
-            </p>
+            <div className="text-xs text-stone-500 leading-relaxed space-y-3">
+              <p>
+                Paint Pour Playground, a brand of Boho Beat Brands, LLC, offers a
+                unique art experience. We provide art supplies for customers to
+                create their own masterpieces. We set up the workspace, offer
+                guidance, and assist with drying. We also offer pick-up or
+                delivery services.
+              </p>
+              <p>
+                Currently, we operate in the greater Houston area but are open to
+                traveling.
+              </p>
+              <p>
+                Stay tuned for our online store, where you can paint whenever you
+                want, in the comfort of your own home. As always, guidance is
+                free! Please check back soon.
+              </p>
+            </div>
           </div>
 
           <div>

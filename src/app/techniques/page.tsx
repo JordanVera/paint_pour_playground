@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { useBookingModal } from "@/components/BookingModalContext";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 const techniques = [
   {
@@ -20,7 +19,7 @@ const techniques = [
     name: "Dutch Pour",
     description:
       "Use a blow dryer or straw to push paint across the canvas, creating delicate, feathery, organic designs with incredible depth.",
-    difficulty: "Medium" as const,
+    difficulty: "Advanced" as const,
     color: "linear-gradient(135deg, #06b6d4 0%, #d946ef 100%)",
   },
   {
@@ -41,14 +40,14 @@ const techniques = [
     name: "Swipe",
     description:
       "Pour colors in stripes or puddles, then drag a tool across the surface to reveal hidden cells and blend colors dramatically.",
-    difficulty: "Medium" as const,
+    difficulty: "Advanced" as const,
     color: "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
   },
   {
     name: "Ring Pour",
     description:
       "Pour paint through a ring or funnel shape to create concentric, tree-ring-like patterns with beautiful layered detail.",
-    difficulty: "Advanced" as const,
+    difficulty: "Medium" as const,
     color: "linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)",
   },
 ];

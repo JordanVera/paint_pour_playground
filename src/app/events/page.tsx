@@ -8,17 +8,29 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { CalendarDays, MapPin, Users } from 'lucide-react';
 
-const upcomingEvents = [
+type UpcomingEvent = {
+  name: string;
+  subtitle?: string;
+  date: string;
+  location: string;
+  websiteUrl?: string;
+  description: string;
+  status: 'upcoming' | 'booking';
+};
+
+const upcomingEvents: UpcomingEvent[] = [
   {
     name: 'Cattle Country Festival',
-    date: 'Coming Soon',
-    location: 'TBA',
+    subtitle:
+      "Texas's largest country and camping music festival (30–35k attendees)",
+    date: 'April 10th–12th',
+    location: 'Cattlecountryfest.com',
+    websiteUrl: 'https://cattlecountryfest.com',
     description:
       'Join us at the festival for a full paint-pour experience. Walk-ups welcome!',
-    status: 'upcoming' as const,
+    status: 'upcoming',
   },
   {
     name: 'Weekend Pop-Up',
@@ -26,7 +38,7 @@ const upcomingEvents = [
     location: 'TBA',
     description:
       'Our regular weekend pop-up sessions. Follow us on social media for announcements.',
-    status: 'upcoming' as const,
+    status: 'upcoming',
   },
   {
     name: 'Private Events',
@@ -34,7 +46,7 @@ const upcomingEvents = [
     location: 'Your Venue',
     description:
       'Birthday parties, team-building, bridal showers — we come to you with the full setup.',
-    status: 'booking' as const,
+    status: 'booking',
   },
 ];
 
@@ -64,12 +76,20 @@ export default function EventsPage() {
                 >
                   <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow">
                     <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <CardTitle className="text-xl">{event.name}</CardTitle>
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <CardTitle className="text-xl">{event.name}</CardTitle>
+                          {event.subtitle ? (
+                            <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                              {event.subtitle}
+                            </p>
+                          ) : null}
+                        </div>
                         <Badge
                           variant={
                             event.status === 'booking' ? 'default' : 'secondary'
                           }
+                          className="shrink-0"
                         >
                           {event.status === 'booking' ? 'Book Now' : 'Upcoming'}
                         </Badge>
@@ -78,12 +98,23 @@ export default function EventsPage() {
                     <CardContent>
                       <div className="space-y-3 mb-4">
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CalendarDays className="w-4 h-4" />
+                          <CalendarDays className="w-4 h-4 shrink-0" />
                           {event.date}
                         </div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <MapPin className="w-4 h-4" />
-                          {event.location}
+                          <MapPin className="w-4 h-4 shrink-0" />
+                          {event.websiteUrl ? (
+                            <a
+                              href={event.websiteUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-primary underline-offset-4 hover:underline"
+                            >
+                              {event.location}
+                            </a>
+                          ) : (
+                            event.location
+                          )}
                         </div>
                       </div>
                       <p className="text-sm text-muted-foreground leading-relaxed">

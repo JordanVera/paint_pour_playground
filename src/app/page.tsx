@@ -14,9 +14,6 @@ import {
   Music2,
   Users2,
   Briefcase,
-  Sparkles,
-  CalendarDays,
-  MapPin,
 } from 'lucide-react';
 
 const valueProps = [
@@ -67,24 +64,6 @@ const eventTypes = [
   },
 ];
 
-const upcomingEventsPreview = [
-  {
-    name: 'Cattle Country Festival',
-    date: 'Coming Soon',
-    location: 'TBA',
-  },
-  {
-    name: 'Weekend Pop-Up',
-    date: 'Dates TBA',
-    location: 'TBA',
-  },
-  {
-    name: 'Private Bookings',
-    date: 'By Request',
-    location: 'Your Venue',
-  },
-];
-
 export default function HomePage() {
   const { openBookingModal } = useBookingModal();
   return (
@@ -108,7 +87,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-white/80 text-sm md:text-base uppercase tracking-widest mb-4"
           >
-            Boho Beat Brands, LLC presents
+            BOHO BEAT BRANDS, LLC
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -124,7 +103,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-2xl md:text-3xl font-semibold mb-4 font-[family-name:var(--font-display)]"
           >
-            YOU Are the Artist
+            Where YOU Are the Artist
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -133,7 +112,7 @@ export default function HomePage() {
             className="text-base md:text-lg text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             We&apos;re a paint-pour pop-up for events, festivals, parties,
-            conferences, and celebrations. Find us at your favorite festival, or
+            conferences, and celebrations. Find us at your favorite festival or
             book us for your venue. We bring the stations, supplies, and
             guidance — you create the art.
           </motion.p>
@@ -274,7 +253,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ASN Reseller Statement */}
       <section className="py-16 bg-surface">
         <div className="container mx-auto px-4">
           <AnimatedSection>
@@ -282,14 +260,24 @@ export default function HomePage() {
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
                 <span className="text-2xl">🎨</span>
               </div>
-              <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
-                &ldquo;We resell art supplies and kits used in our experiences.
-                Customers create their own art — we facilitate setup, guidance,
-                and drying/delivery.&rdquo;
-              </p>
-              <p className="mt-4 text-sm text-muted-foreground">
-                Paint Pour Playground by Boho Beat Brands, LLC
-              </p>
+              <div className="text-muted-foreground text-sm md:text-base leading-relaxed space-y-4 text-left md:text-center">
+                <p>
+                  Paint Pour Playground, a brand of Boho Beat Brands, LLC, offers
+                  a unique art experience. We provide art supplies for customers
+                  to create their own masterpieces. We set up the workspace,
+                  offer guidance, and assist with drying. We also offer pick-up
+                  or delivery services.
+                </p>
+                <p>
+                  Currently, we operate in the greater Houston area but are open
+                  to traveling.
+                </p>
+                <p>
+                  Stay tuned for our online store, where you can paint whenever
+                  you want, in the comfort of your own home. As always, guidance
+                  is free! Please check back soon.
+                </p>
+              </div>
             </div>
           </AnimatedSection>
         </div>

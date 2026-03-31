@@ -1,55 +1,54 @@
-"use client";
+'use client';
 
-import { Hero } from "@/components/Hero";
-import { StepCard } from "@/components/StepCard";
-import { SectionHeading } from "@/components/SectionHeading";
-import { AnimatedSection } from "@/components/AnimatedSection";
-import { useBookingModal } from "@/components/BookingModalContext";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Hero } from '@/components/Hero';
+import { StepCard } from '@/components/StepCard';
+import { SectionHeading } from '@/components/SectionHeading';
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { useBookingModal } from '@/components/BookingModalContext';
+import { Button } from '@/components/ui/button';
 
 const steps = [
   {
     step: 1,
-    title: "Pick Your Canvas",
+    title: 'Pick Your Canvas',
     description:
-      "Choose from a range of canvas sizes — from small coasters to large gallery-ready pieces.",
-    icon: "🖼️",
+      'Choose from a range of canvas sizes — from small coasters to large gallery-ready pieces.',
+    icon: '🖼️',
   },
   {
     step: 2,
-    title: "Pick Your Colors",
+    title: 'Pick Your Colors',
     description:
       "Select from our curated acrylic paint palette. Go bold, go subtle — it's all you.",
-    icon: "🎨",
+    icon: '🎨',
   },
   {
     step: 3,
-    title: "Choose a Technique",
+    title: 'Choose a Technique',
     description:
       "Spinner, Dutch pour, flip cup, dirty pour, swipe — we'll walk you through each one.",
-    icon: "🔄",
+    icon: '🔄',
   },
   {
     step: 4,
-    title: "Pour & Create",
+    title: 'Pour & Create',
     description:
-      "This is the magic moment. Pour, tilt, swirl, and watch your masterpiece come to life.",
-    icon: "🫗",
+      'This is the magic moment. Pour, tilt, swirl, and watch your masterpiece come to life.',
+    icon: '🫗',
   },
   {
     step: 5,
-    title: "We Dry It",
+    title: 'We Dry It',
     description:
-      "We carefully transport your piece to our drying area. Acrylic pours take 24–72 hours to cure.",
-    icon: "☀️",
+      'We carefully transport your piece to our drying area. Acrylic pours take 24–72 hours to cure.',
+    icon: '☀️',
   },
   {
     step: 6,
-    title: "Pickup or Shipping",
+    title: 'Pickup or Shipping',
     description:
       "Pick up your finished art at the next event, or we'll ship it straight to your door.",
-    icon: "📦",
+    icon: '📦',
   },
 ];
 

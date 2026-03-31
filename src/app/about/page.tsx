@@ -27,7 +27,7 @@ export default function AboutPage() {
             <AnimatedSection>
               <div className="text-center mb-12">
                 <p className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
-                  Boho Beat Brands, LLC presents
+                  BOHO BEAT BRANDS, LLC PRESENTS
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold">
                   <span className="text-primary">Paint Pour</span>{' '}
@@ -41,9 +41,9 @@ export default function AboutPage() {
                 <p>
                   Paint Pour Playground was born from a simple idea: everyone
                   deserves a creative outlet, and art doesn&apos;t have to be
-                  intimidating. We bring the magic of acrylic paint pouring to
-                  festivals, pop-ups, and private events — making it easy, fun,
-                  and mess-free for people of all ages.
+                  intimidating — YOU can be an artist too! We bring the magic of
+                  acrylic paint pouring to festivals, pop-ups, and private events
+                  — making it easy, fun, and mess-free for people of all ages.
                 </p>
                 <p>
                   Our pop-up stations come fully equipped with canvases, premium
@@ -53,9 +53,23 @@ export default function AboutPage() {
                   setup, expert guidance, cleanup, drying, and delivery.
                 </p>
                 <p>
+                  Have a specific color palette in mind? No problem! We will
+                  guide you through the best process to reach your desired
+                  outcome for all custom requests. Unsure of what colors to
+                  select? No problem! Our trained staff understand the science
+                  behind color theory and are here to help you pick out your
+                  perfect color palette after a few questions. Unsure of
+                  technique? No problem! We have many examples for you to
+                  choose from to create your perfect unique design. Want to work
+                  alone? No problem! We have step-by-step instructions on the
+                  screen and in text format, but feel free to go solo too! After
+                  all, it&apos;s your masterpiece!
+                </p>
+                <p>
                   Whether it&apos;s a festival booth, a birthday party, a
-                  corporate team-building event, or a Saturday morning pop-up at
-                  the market, we bring the color and handle the rest.
+                  corporate team-building event, a Saturday pop-up at your local
+                  community center, or a private lesson — you bring the
+                  inspiration and we handle the rest.
                 </p>
               </div>
             </AnimatedSection>
@@ -87,11 +101,11 @@ export default function AboutPage() {
                       <span>hello@paintpourplayground.com</span>
                     </a>
                     <a
-                      href="tel:+15551234567"
+                      href="tel:+17036385076"
                       className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
                     >
                       <Phone className="w-5 h-5" />
-                      <span>(555) 123-4567</span>
+                      <span>703-638-5076</span>
                     </a>
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <MapPin className="w-5 h-5" />
@@ -127,9 +141,9 @@ export default function AboutPage() {
                 <CardContent className="p-8 flex flex-col justify-center h-full">
                   <h3 className="text-2xl font-bold mb-4">Ready to Book?</h3>
                   <p className="text-white/85 mb-6 leading-relaxed">
-                    Whether it&apos;s a festival, a private party, or a
-                    corporate event — we&apos;d love to bring the paint-pour
-                    experience to you.
+                    Whether it&apos;s a festival, a private party, a private
+                    lesson, or a corporate event — we&apos;d love to bring the
+                    paint-pour experience to you.
                   </p>
                   <Button
                     size="lg"
