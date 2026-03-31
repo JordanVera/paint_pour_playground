@@ -110,7 +110,7 @@ export default function SafetyPage() {
       <Hero
         title="Safety & Zero-Waste"
         subtitle="We take safety seriously and leave every venue cleaner than we found it."
-        imageUrl="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1920&q=80"
+        imageUrl="/images/techniques/flip-cup.jpeg"
       />
 
       {/* Safety Section */}

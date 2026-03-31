@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface HeroProps {
   title: string;
@@ -19,7 +19,7 @@ export function Hero({
   title,
   subtitle,
   ctaText,
-  ctaHref = "/book",
+  ctaHref = '/book',
   gradient = false,
   imageUrl,
 }: HeroProps) {
@@ -30,10 +30,10 @@ export function Hero({
     <section
       className={`relative overflow-hidden py-24 md:py-32 ${
         gradient
-          ? "bg-gradient-to-br from-fuchsia-500 via-purple-500 to-cyan-500 text-white"
+          ? 'bg-gradient-to-br from-fuchsia-500 via-purple-500 to-cyan-500 text-white'
           : hasImage
-            ? "text-white"
-            : "bg-surface"
+            ? 'text-white'
+            : 'bg-surface'
       }`}
     >
       {hasImage && imageUrl && (
@@ -60,9 +60,9 @@ export function Hero({
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
           className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 ${
-            useLightText ? "text-white" : "text-foreground"
+            useLightText ? 'text-white' : 'text-foreground'
           }`}
         >
           {title}
@@ -71,9 +71,9 @@ export function Hero({
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
             className={`text-lg md:text-xl max-w-3xl mx-auto mb-8 ${
-              useLightText ? "text-white/90" : "text-muted-foreground"
+              useLightText ? 'text-white/90' : 'text-muted-foreground'
             }`}
           >
             {subtitle}
@@ -83,12 +83,12 @@ export function Hero({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
           >
             <Link href={ctaHref}>
               <Button
                 size="lg"
-                variant={gradient ? "accent" : "default"}
+                variant={gradient ? 'accent' : 'default'}
                 className="text-lg px-10 py-6"
               >
                 {ctaText}

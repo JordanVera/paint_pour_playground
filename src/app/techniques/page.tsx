@@ -1,55 +1,76 @@
-"use client";
+'use client';
 
-import { Hero } from "@/components/Hero";
-import { TechniqueCard } from "@/components/TechniqueCard";
-import { SectionHeading } from "@/components/SectionHeading";
-import { AnimatedSection } from "@/components/AnimatedSection";
-import { useBookingModal } from "@/components/BookingModalContext";
-import { Button } from "@/components/ui/button";
+import { Hero } from '@/components/Hero';
+import { TechniqueCard } from '@/components/TechniqueCard';
+import { SectionHeading } from '@/components/SectionHeading';
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { useBookingModal } from '@/components/BookingModalContext';
+import { Button } from '@/components/ui/button';
 
-const techniques = [
+type Technique = {
+  name: string;
+  description: string;
+  difficulty: 'Easy' | 'Medium' | 'Advanced';
+  color: string;
+  imageSrc?: string;
+};
+
+const techniques: Technique[] = [
   {
-    name: "Spinner",
+    name: 'Spinner',
     description:
-      "Place your canvas on a spinning platform, pour your colors on top, and let centrifugal force create mesmerizing spiral patterns.",
-    difficulty: "Easy" as const,
-    color: "linear-gradient(135deg, #d946ef 0%, #f59e0b 100%)",
+      'Place your canvas on a spinning platform, pour your colors on top, and let centrifugal force create mesmerizing spiral patterns.',
+    difficulty: 'Easy' as const,
+    color: 'linear-gradient(135deg, #d946ef 0%, #f59e0b 100%)',
+    imageSrc: '/images/techniques/spinner.jpg',
   },
   {
-    name: "Dutch Pour",
+    name: 'Dutch Pour',
     description:
-      "Use a blow dryer or straw to push paint across the canvas, creating delicate, feathery, organic designs with incredible depth.",
-    difficulty: "Advanced" as const,
-    color: "linear-gradient(135deg, #06b6d4 0%, #d946ef 100%)",
+      'Use a blow dryer or straw to push paint across the canvas, creating delicate, feathery, organic designs with incredible depth.',
+    difficulty: 'Advanced' as const,
+    color: 'linear-gradient(135deg, #06b6d4 0%, #d946ef 100%)',
+    imageSrc: '/images/techniques/dutch-pour.png',
   },
   {
-    name: "Flip Cup",
+    name: 'Flip Cup',
     description:
-      "Layer your colors in a cup, flip it onto the canvas, and lift to reveal a stunning cell-filled bloom of color.",
-    difficulty: "Easy" as const,
-    color: "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)",
+      'Layer your colors in a cup, flip it onto the canvas, and lift to reveal a stunning cell-filled bloom of color.',
+    difficulty: 'Easy' as const,
+    color: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
+    imageSrc: '/images/techniques/flip-cup.jpeg',
   },
   {
-    name: "Dirty Pour",
+    name: 'Dirty Pour',
     description:
-      "Layer multiple colors in one cup without mixing, then pour directly onto the canvas for rich, unpredictable patterns.",
-    difficulty: "Easy" as const,
-    color: "linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)",
+      'Layer multiple colors in one cup without mixing, then pour directly onto the canvas for rich, unpredictable patterns.',
+    difficulty: 'Easy' as const,
+    color: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
+    imageSrc: '/images/techniques/dirty-pour.jpg',
   },
   {
-    name: "Swipe",
+    name: 'Swipe',
     description:
-      "Pour colors in stripes or puddles, then drag a tool across the surface to reveal hidden cells and blend colors dramatically.",
-    difficulty: "Advanced" as const,
-    color: "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
+      'Pour colors in stripes or puddles, then drag a tool across the surface to reveal hidden cells and blend colors dramatically.',
+    difficulty: 'Advanced' as const,
+    color: 'linear-gradient(135deg, #10b981 0%, #3b82f6 100%)',
+    imageSrc: '/images/techniques/swipe.jpeg',
   },
   {
-    name: "Ring Pour",
+    name: 'Open Cup',
     description:
-      "Pour paint through a ring or funnel shape to create concentric, tree-ring-like patterns with beautiful layered detail.",
-    difficulty: "Medium" as const,
-    color: "linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)",
+      'Layer colors in an open cup, then pour in ribbons or streams across the canvas for flowing blends, cells, and striking negative space.',
+    difficulty: 'Medium' as const,
+    color: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
+    imageSrc: '/images/techniques/open-cup.jpg',
   },
+  // {
+  //   name: 'Ring Pour',
+  //   description:
+  //     'Pour paint through a ring or funnel shape to create concentric, tree-ring-like patterns with beautiful layered detail.',
+  //   difficulty: 'Medium' as const,
+  //   color: 'linear-gradient(135deg, #f97316 0%, #eab308 100%)',
+  // },
 ];
 
 export default function TechniquesPage() {
@@ -59,7 +80,7 @@ export default function TechniquesPage() {
       <Hero
         title="Techniques"
         subtitle="Discover the different pour methods you can try. Each one creates a unique, one-of-a-kind result."
-        imageUrl="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1920&q=80"
+        imageUrl="/images/techniques/flip-cup.jpeg"
       />
 
       <section className="py-20 md:py-28">
@@ -77,6 +98,7 @@ export default function TechniquesPage() {
                 description={t.description}
                 difficulty={t.difficulty}
                 color={t.color}
+                imageSrc={t.imageSrc}
                 delay={i * 0.1}
               />
             ))}
@@ -91,8 +113,8 @@ export default function TechniquesPage() {
               Want to Try One?
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8">
-              Book a session and we&apos;ll help you pick the perfect technique for
-              your skill level and style.
+              Book a session and we&apos;ll help you pick the perfect technique
+              for your skill level and style.
             </p>
             <Button
               size="lg"
